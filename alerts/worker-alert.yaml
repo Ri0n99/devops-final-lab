@@ -1,0 +1,17 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: worker-alert
+  namespace: monitoring
+spec:
+  groups:
+    - name: worker.rules
+      rules:
+        - alert: WorkerQueueHigh
+          expr: worker_queue_length > 10
+          for: 1m
+          labels:
+            severity: warning
+          annotations:
+            summary: "Queue in worker pod is high"
+            description: "The worker queue has more than 10 items for over 1 minute."
