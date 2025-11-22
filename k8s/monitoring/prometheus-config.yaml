@@ -1,0 +1,20 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: prometheus-config
+  labels:
+    name: prometheus-config
+data:
+  prometheus.yml: |
+    global:
+      scrape_interval: 5s
+
+    scrape_configs:
+
+      - job_name: 'api'
+        static_configs:
+          - targets: ['api-service.default.svc.cluster.local:3000']
+
+      - job_name: 'workers'
+        static_configs:
+          - targets: ['workers-service.default.svc.cluster.local:3000']
