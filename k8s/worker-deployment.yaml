@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: worker-deployment
+  namespace: app
   labels:
     app: worker
 spec:
@@ -15,7 +16,6 @@ spec:
         app: worker
     spec:
       containers:
-      - name: worker
-        image: devops-worker:latest
-        imagePullPolicy: Never
-
+        - name: worker
+          image: worker:latest
+          imagePullPolicy: IfNotPresent

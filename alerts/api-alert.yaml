@@ -1,0 +1,16 @@
+apiVersion: monitoring.coreos.com/v1
+kind: PrometheusRule
+metadata:
+  name: api-alert
+  namespace: monitoring
+spec:
+  groups:
+    - name: api.rules
+      rules:
+        - alert: ApiDown
+          expr: up{job="api"} == 0
+          for: 1m
+          labels:
+            severity: critical
+          annotations:
+            summary: "API është jashtë"

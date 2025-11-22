@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Ky projekt tregon një setup DevOps duke përdorur Kubernetes, Docker, Terraform, Prometheus dhe Grafana. Projekti përfshin:
 
 Infrastrukturën (Terraform) – për krijimin e environment-it bazik.
@@ -124,3 +125,6 @@ Autoscaling i pods bazuar në load
 Screenshots e dashboards dhe alert test
 
 Plotësimi i docs me diagram arkitekture dhe runbook
+=======
+# DevOps Final Lab
+>>>>>>> master
